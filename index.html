@@ -1,0 +1,344 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Melodify - Music Streaming</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap');
+        body {
+            font-family: 'Poppins', sans-serif;
+            background-color: #0f0f13;
+            color: white;
+        }
+        .player-bar {
+            height: 90px;
+        }
+        .album-art {
+            transition: transform 0.3s ease;
+        }
+        .album-art:hover {
+            transform: scale(1.05);
+        }
+    </style>
+</head>
+<body class="pb-20">
+    <!-- Navigation -->
+    <nav class="bg-black bg-opacity-80 backdrop-blur-md fixed w-full z-10">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex items-center justify-between h-16">
+                <div class="flex items-center">
+                    <div class="flex-shrink-0">
+                        <span class="text-2xl font-bold text-purple-500">Melodify</span>
+                    </div>
+                    <div class="hidden md:block">
+                        <div class="ml-10 flex items-baseline space-x-4">
+                            <a href="#" class="text-white px-3 py-2 rounded-md text-sm font-medium">Home</a>
+                            <a href="#" class="text-gray-300 hover:text-white px-3 py-2 rounded-md text-sm font-medium">Browse</a>
+                            <a href="#" class="text-gray-300 hover:text-white px-3 py-2 rounded-md text-sm font-medium">Library</a>
+                            <a href="#" class="text-gray-300 hover:text-white px-3 py-2 rounded-md text-sm font-medium">Playlists</a>
+                        </div>
+                    </div>
+                </div>
+                <div class="flex items-center">
+                    <div class="relative mx-4">
+                        <input type="text" placeholder="Search songs, artists..." class="bg-gray-800 text-white px-4 py-2 rounded-full w-64 focus:outline-none focus:ring-2 focus:ring-purple-500">
+                        <i class="fas fa-search absolute right-3 top-2.5 text-gray-400"></i>
+                    </div>
+                    <div class="ml-4 flex items-center md:ml-6">
+                        <button class="bg-purple-600 hover:bg-purple-700 text-white px-4 py-2 rounded-full text-sm font-medium">
+                            Upgrade
+                        </button>
+                        <div class="ml-3 relative">
+                            <div class="h-8 w-8 rounded-full bg-gray-600 flex items-center justify-center cursor-pointer">
+                                <i class="fas fa-user text-white"></i>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Main Content -->
+    <div class="pt-20 px-6 sm:px-10">
+        <!-- Hero Section -->
+        <div class="bg-gradient-to-r from-purple-900 to-indigo-800 rounded-2xl p-8 mb-10">
+            <h1 class="text-4xl font-bold mb-4">Discover New Music</h1>
+            <p class="text-xl text-gray-300 mb-6">Stream millions of songs, anytime, anywhere.</p>
+            <button class="bg-white text-purple-800 hover:bg-gray-100 px-6 py-3 rounded-full font-semibold">
+                Start Listening
+            </button>
+        </div>
+
+        <!-- Recently Played -->
+        <div class="mb-10">
+            <h2 class="text-2xl font-bold mb-6">Recently Played</h2>
+            <div class="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-6 gap-6">
+                <!-- Album Card 1 -->
+                <div class="bg-gray-800 bg-opacity-50 rounded-xl p-4 hover:bg-gray-700 transition cursor-pointer">
+                    <div class="relative mb-4">
+                        <img src="https://images.pexels.com/photos/1763075/pexels-photo-1763075.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=750&w=1260" alt="Album Cover" class="w-full h-auto rounded-lg album-art">
+                        <button class="absolute bottom-2 right-2 bg-purple-600 hover:bg-purple-700 w-10 h-10 rounded-full flex items-center justify-center">
+                            <i class="fas fa-play text-white"></i>
+                        </button>
+                    </div>
+                    <h3 class="font-semibold text-white">Midnight Dreams</h3>
+                    <p class="text-gray-400 text-sm">The Weeknd</p>
+                </div>
+
+                <!-- Album Card 2 -->
+                <div class="bg-gray-800 bg-opacity-50 rounded-xl p-4 hover:bg-gray-700 transition cursor-pointer">
+                    <div class="relative mb-4">
+                        <img src="https://images.pexels.com/photos/210922/pexels-photo-210922.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=750&w=1260" alt="Album Cover" class="w-full h-auto rounded-lg album-art">
+                        <button class="absolute bottom-2 right-2 bg-purple-600 hover:bg-purple-700 w-10 h-10 rounded-full flex items-center justify-center">
+                            <i class="fas fa-play text-white"></i>
+                        </button>
+                    </div>
+                    <h3 class="font-semibold text-white">Summer Vibes</h3>
+                    <p class="text-gray-400 text-sm">Calvin Harris</p>
+                </div>
+
+                <!-- Album Card 3 -->
+                <div class="bg-gray-800 bg-opacity-50 rounded-xl p-4 hover:bg-gray-700 transition cursor-pointer">
+                    <div class="relative mb-4">
+                        <img src="https://images.pexels.com/photos/164727/pexels-photo-164727.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=750&w=1260" alt="Album Cover" class="w-full h-auto rounded-lg album-art">
+                        <button class="absolute bottom-2 right-2 bg-purple-600 hover:bg-purple-700 w-10 h-10 rounded-full flex items-center justify-center">
+                            <i class="fas fa-play text-white"></i>
+                        </button>
+                    </div>
+                    <h3 class="font-semibold text-white">Urban Nights</h3>
+                    <p class="text-gray-400 text-sm">Drake</p>
+                </div>
+
+                <!-- Album Card 4 -->
+                <div class="bg-gray-800 bg-opacity-50 rounded-xl p-4 hover:bg-gray-700 transition cursor-pointer">
+                    <div class="relative mb-4">
+                        <img src="https://images.pexels.com/photos/167092/pexels-photo-167092.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=750&w=1260" alt="Album Cover" class="w-full h-auto rounded-lg album-art">
+                        <button class="absolute bottom-2 right-2 bg-purple-600 hover:bg-purple-700 w-10 h-10 rounded-full flex items-center justify-center">
+                            <i class="fas fa-play text-white"></i>
+                        </button>
+                    </div>
+                    <h3 class="font-semibold text-white">Electric Dreams</h3>
+                    <p class="text-gray-400 text-sm">Daft Punk</p>
+                </div>
+
+                <!-- Album Card 5 -->
+                <div class="bg-gray-800 bg-opacity-50 rounded-xl p-4 hover:bg-gray-700 transition cursor-pointer">
+                    <div class="relative mb-4">
+                        <img src="https://images.pexels.com/photos/144428/pexels-photo-144428.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=750&w=1260" alt="Album Cover" class="w-full h-auto rounded-lg album-art">
+                        <button class="absolute bottom-2 right-2 bg-purple-600 hover:bg-purple-700 w-10 h-10 rounded-full flex items-center justify-center">
+                            <i class="fas fa-play text-white"></i>
+                        </button>
+                    </div>
+                    <h3 class="font-semibold text-white">Jazz Reflections</h3>
+                    <p class="text-gray-400 text-sm">Norah Jones</p>
+                </div>
+
+                <!-- Album Card 6 -->
+                <div class="bg-gray-800 bg-opacity-50 rounded-xl p-4 hover:bg-gray-700 transition cursor-pointer">
+                    <div class="relative mb-4">
+                        <img src="https://images.pexels.com/photos/144429/pexels-photo-144429.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=750&w=1260" alt="Album Cover" class="w-full h-auto rounded-lg album-art">
+                        <button class="absolute bottom-2 right-2 bg-purple-600 hover:bg-purple-700 w-10 h-10 rounded-full flex items-center justify-center">
+                            <i class="fas fa-play text-white"></i>
+                        </button>
+                    </div>
+                    <h3 class="font-semibold text-white">Classical Moments</h3>
+                    <p class="text-gray-400 text-sm">Beethoven</p>
+                </div>
+            </div>
+        </div>
+
+        <!-- Popular Playlists -->
+        <div class="mb-10">
+            <div class="flex justify-between items-center mb-6">
+                <h2 class="text-2xl font-bold">Popular Playlists</h2>
+                <a href="#" class="text-purple-400 hover:text-purple-300 text-sm font-medium">See all</a>
+            </div>
+            <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
+                <!-- Playlist 1 -->
+                <div class="bg-gradient-to-br from-purple-900 to-blue-900 rounded-xl p-6 flex items-center">
+                    <div class="w-16 h-16 bg-white bg-opacity-20 rounded-lg flex items-center justify-center mr-4">
+                        <i class="fas fa-music text-white text-xl"></i>
+                    </div>
+                    <div>
+                        <h3 class="font-bold text-white">Today's Top Hits</h3>
+                        <p class="text-gray-300 text-sm">120 songs • 8h 45m</p>
+                    </div>
+                </div>
+
+                <!-- Playlist 2 -->
+                <div class="bg-gradient-to-br from-pink-900 to-red-900 rounded-xl p-6 flex items-center">
+                    <div class="w-16 h-16 bg-white bg-opacity-20 rounded-lg flex items-center justify-center mr-4">
+                        <i class="fas fa-heart text-white text-xl"></i>
+                    </div>
+                    <div>
+                        <h3 class="font-bold text-white">Liked Songs</h3>
+                        <p class="text-gray-300 text-sm">85 songs • 5h 30m</p>
+                    </div>
+                </div>
+
+                <!-- Playlist 3 -->
+                <div class="bg-gradient-to-br from-green-900 to-teal-900 rounded-xl p-6 flex items-center">
+                    <div class="w-16 h-16 bg-white bg-opacity-20 rounded-lg flex items-center justify-center mr-4">
+                        <i class="fas fa-bolt text-white text-xl"></i>
+                    </div>
+                    <div>
+                        <h3 class="font-bold text-white">Energy Boost</h3>
+                        <p class="text-gray-300 text-sm">60 songs • 3h 15m</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- New Releases -->
+        <div class="mb-10">
+            <h2 class="text-2xl font-bold mb-6">New Releases</h2>
+            <div class="overflow-x-auto">
+                <table class="min-w-full divide-y divide-gray-700">
+                    <thead class="bg-gray-800">
+                        <tr>
+                            <th scope="col" class="px-6 py-3 text-left text-xs font-medium text-gray-400 uppercase tracking-wider">#</th>
+                            <th scope="col" class="px-6 py-3 text-left text-xs font-medium text-gray-400 uppercase tracking-wider">Title</th>
+                            <th scope="col" class="px-6 py-3 text-left text-xs font-medium text-gray-400 uppercase tracking-wider">Artist</th>
+                            <th scope="col" class="px-6 py-3 text-left text-xs font-medium text-gray-400 uppercase tracking-wider">Album</th>
+                            <th scope="col" class="px-6 py-3 text-left text-xs font-medium text-gray-400 uppercase tracking-wider"><i class="far fa-clock"></i></th>
+                        </tr>
+                    </thead>
+                    <tbody class="bg-gray-900 divide-y divide-gray-700">
+                        <!-- Song 1 -->
+                        <tr class="hover:bg-gray-800 cursor-pointer">
+                            <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-400">1</td>
+                            <td class="px-6 py-4 whitespace-nowrap">
+                                <div class="flex items-center">
+                                    <div class="flex-shrink-0 h-10 w-10 mr-3">
+                                        <img class="h-10 w-10 rounded" src="https://images.pexels.com/photos/1763075/pexels-photo-1763075.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=100&w=100" alt="">
+                                    </div>
+                                    <div>
+                                        <div class="text-sm font-medium text-white">Blinding Lights</div>
+                                    </div>
+                                </div>
+                            </td>
+                            <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-400">The Weeknd</td>
+                            <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-400">After Hours</td>
+                            <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-400">3:20</td>
+                        </tr>
+
+                        <!-- Song 2 -->
+                        <tr class="hover:bg-gray-800 cursor-pointer">
+                            <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-400">2</td>
+                            <td class="px-6 py-4 whitespace-nowrap">
+                                <div class="flex items-center">
+                                    <div class="flex-shrink-0 h-10 w-10 mr-3">
+                                        <img class="h-10 w-10 rounded" src="https://images.pexels.com/photos/210922/pexels-photo-210922.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=100&w=100" alt="">
+                                    </div>
+                                    <div>
+                                        <div class="text-sm font-medium text-white">Summer</div>
+                                    </div>
+                                </div>
+                            </td>
+                            <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-400">Calvin Harris</td>
+                            <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-400">Motion</td>
+                            <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-400">3:42</td>
+                        </tr>
+
+                        <!-- Song 3 -->
+                        <tr class="hover:bg-gray-800 cursor-pointer">
+                            <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-400">3</td>
+                            <td class="px-6 py-4 whitespace-nowrap">
+                                <div class="flex items-center">
+                                    <div class="flex-shrink-0 h-10 w-10 mr-3">
+                                        <img class="h-10 w-10 rounded" src="https://images.pexels.com/photos/164727/pexels-photo-164727.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=100&w=100" alt="">
+                                    </div>
+                                    <div>
+                                        <div class="text-sm font-medium text-white">God's Plan</div>
+                                    </div>
+                                </div>
+                            </td>
+                            <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-400">Drake</td>
+                            <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-400">Scorpion</td>
+                            <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-400">3:18</td>
+                        </tr>
+
+                        <!-- Song 4 -->
+                        <tr class="hover:bg-gray-800 cursor-pointer">
+                            <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-400">4</td>
+                            <td class="px-6 py-4 whitespace-nowrap">
+                                <div class="flex items-center">
+                                    <div class="flex-shrink-0 h-10 w-10 mr-3">
+                                        <img class="h-10 w-10 rounded" src="https://images.pexels.com/photos/167092/pexels-photo-167092.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=100&w=100" alt="">
+                                    </div>
+                                    <div>
+                                        <div class="text-sm font-medium text-white">Get Lucky</div>
+                                    </div>
+                                </div>
+                            </td>
+                            <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-400">Daft Punk</td>
+                            <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-400">Random Access Memories</td>
+                            <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-400">4:08</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </div>
+
+    <!-- Player Bar -->
+    <div class="player-bar fixed bottom-0 left-0 right-0 bg-gray-900 border-t border-gray-800 flex items-center px-4">
+        <div class="flex items-center w-1/4">
+            <img src="" alt="Now Playing" class="player-cover h-14 w-14 rounded mr-3">
+            <div>
+                <h4 class="player-title text-white text-sm font-medium"></h4>
+                <p class="player-artist text-gray-400 text-xs"></p>
+            </div>
+            <button class="ml-4 text-gray-400 hover:text-white">
+                <i class="far fa-heart"></i>
+            </button>
+        </div>
+
+        <div class="w-2/4 flex flex-col items-center">
+            <div class="flex items-center mb-2">
+                <button class="shuffle-btn mx-2 text-gray-400 hover:text-white">
+                    <i class="fas fa-random"></i>
+                </button>
+                <button class="prev-btn mx-2 text-gray-400 hover:text-white">
+                    <i class="fas fa-step-backward"></i>
+                </button>
+                <button class="play-btn mx-3 bg-white text-black w-8 h-8 rounded-full flex items-center justify-center hover:bg-gray-200">
+                    <i class="fas fa-play"></i>
+                </button>
+                <button class="next-btn mx-2 text-gray-400 hover:text-white">
+                    <i class="fas fa-step-forward"></i>
+                </button>
+                <button class="repeat-btn mx-2 text-gray-400 hover:text-white">
+                    <i class="fas fa-redo"></i>
+                </button>
+            </div>
+            <div class="w-full flex items-center">
+                <span class="current-time text-xs text-gray-400 mr-2">0:00</span>
+                <div class="flex-1 h-1 bg-gray-700 rounded-full">
+                    <div class="progress-bar h-1 bg-purple-500 rounded-full" style="width: 0%"></div>
+                </div>
+                <span class="duration text-xs text-gray-400 ml-2">0:00</span>
+            </div>
+        </div>
+
+        <div class="w-1/4 flex justify-end items-center">
+            <button class="queue-btn mx-2 text-gray-400 hover:text-white">
+                <i class="fas fa-list-ul"></i>
+            </button>
+            <button class="devices-btn mx-2 text-gray-400 hover:text-white">
+                <i class="fas fa-laptop"></i>
+            </button>
+            <div class="flex items-center ml-4">
+                <i class="fas fa-volume-up text-gray-400 mr-2"></i>
+                <div class="w-20 h-1 bg-gray-700 rounded-full">
+                    <div class="volume-slider h-1 bg-gray-400 rounded-full" style="width: 70%"></div>
+                </div>
+            </div>
+        </div>
+    </div>
+</body>
+</html>
