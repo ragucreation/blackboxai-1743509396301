@@ -1,0 +1,149 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Your Library | Melodify</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap');
+        body {
+            font-family: 'Poppins', sans-serif;
+            background-color: #0f0f13;
+            color: white;
+        }
+        .player-bar {
+            height: 90px;
+        }
+        .album-art {
+            transition: transform 0.3s ease;
+        }
+        .album-art:hover {
+            transform: scale(1.05);
+        }
+    </style>
+</head>
+<body class="pb-20">
+    <!-- Navigation (same as index.html) -->
+    <nav class="bg-black bg-opacity-80 backdrop-blur-md fixed w-full z-10">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex items-center justify-between h-16">
+                <div class="flex items-center">
+                    <div class="flex-shrink-0">
+                        <span class="text-2xl font-bold text-purple-500">Melodify</span>
+                    </div>
+                    <div class="hidden md:block">
+                        <div class="ml-10 flex items-baseline space-x-4">
+                            <a href="index.html" class="text-gray-300 hover:text-white px-3 py-2 rounded-md text-sm font-medium">Home</a>
+                            <a href="#" class="text-gray-300 hover:text-white px-3 py-2 rounded-md text-sm font-medium">Browse</a>
+                            <a href="library.html" class="text-white px-3 py-2 rounded-md text-sm font-medium">Library</a>
+                            <a href="playlists.html" class="text-gray-300 hover:text-white px-3 py-2 rounded-md text-sm font-medium">Playlists</a>
+                        </div>
+                    </div>
+                </div>
+                <!-- Search and user controls (same as index.html) -->
+            </div>
+        </div>
+    </nav>
+
+    <!-- Main Content -->
+    <div class="pt-20 px-6 sm:px-10">
+        <div class="flex justify-between items-center mb-8">
+            <h1 class="text-3xl font-bold">Your Library</h1>
+            <div class="flex space-x-4">
+                <button class="bg-gray-800 hover:bg-gray-700 px-4 py-2 rounded-full text-sm font-medium">
+                    <i class="fas fa-sort-amount-down mr-2"></i> Sort
+                </button>
+                <button class="bg-purple-600 hover:bg-purple-700 px-4 py-2 rounded-full text-sm font-medium">
+                    <i class="fas fa-plus mr-2"></i> Add New
+                </button>
+            </div>
+        </div>
+
+        <!-- Filter Section -->
+        <div class="bg-gray-800 bg-opacity-50 rounded-xl p-4 mb-8">
+            <div class="flex flex-wrap items-center gap-4">
+                <div>
+                    <label class="block text-sm font-medium text-gray-400 mb-1">Filter by</label>
+                    <select class="bg-gray-700 text-white rounded-md px-3 py-2 text-sm">
+                        <option>All</option>
+                        <option>Recently Played</option>
+                        <option>Recently Added</option>
+                        <option>Favorites</option>
+                    </select>
+                </div>
+                <div>
+                    <label class="block text-sm font-medium text-gray-400 mb-1">Genre</label>
+                    <select class="bg-gray-700 text-white rounded-md px-3 py-2 text-sm">
+                        <option>All Genres</option>
+                        <option>Pop</option>
+                        <option>Rock</option>
+                        <option>Hip Hop</option>
+                        <option>Electronic</option>
+                    </select>
+                </div>
+                <div>
+                    <label class="block text-sm font-medium text-gray-400 mb-1">Year</label>
+                    <select class="bg-gray-700 text-white rounded-md px-3 py-2 text-sm">
+                        <option>All Years</option>
+                        <option>2023</option>
+                        <option>2022</option>
+                        <option>2021</option>
+                    </select>
+                </div>
+            </div>
+        </div>
+
+        <!-- Songs List -->
+        <div class="bg-gray-900 bg-opacity-50 rounded-xl overflow-hidden">
+            <table class="min-w-full divide-y divide-gray-700">
+                <thead class="bg-gray-800">
+                    <tr>
+                        <th scope="col" class="px-6 py-3 text-left text-xs font-medium text-gray-400 uppercase tracking-wider">#</th>
+                        <th scope="col" class="px-6 py-3 text-left text-xs font-medium text-gray-400 uppercase tracking-wider">Title</th>
+                        <th scope="col" class="px-6 py-3 text-left text-xs font-medium text-gray-400 uppercase tracking-wider">Artist</th>
+                        <th scope="col" class="px-6 py-3 text-left text-xs font-medium text-gray-400 uppercase tracking-wider">Album</th>
+                        <th scope="col" class="px-6 py-3 text-left text-xs font-medium text-gray-400 uppercase tracking-wider">Duration</th>
+                        <th scope="col" class="px-6 py-3 text-left text-xs font-medium text-gray-400 uppercase tracking-wider">Actions</th>
+                    </tr>
+                </thead>
+                <tbody class="divide-y divide-gray-700">
+                    <!-- Song 1 -->
+                    <tr class="hover:bg-gray-800">
+                        <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-400">1</td>
+                        <td class="px-6 py-4 whitespace-nowrap">
+                            <div class="flex items-center">
+                                <div class="flex-shrink-0 h-10 w-10 mr-3">
+                                    <img class="h-10 w-10 rounded" src="https://images.pexels.com/photos/1763075/pexels-photo-1763075.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=100&w=100" alt="">
+                                </div>
+                                <div>
+                                    <div class="text-sm font-medium text-white">Blinding Lights</div>
+                                </div>
+                            </div>
+                        </td>
+                        <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-400">The Weeknd</td>
+                        <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-400">After Hours</td>
+                        <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-400">3:20</td>
+                        <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-400">
+                            <button class="text-purple-400 hover:text-purple-300 mr-3">
+                                <i class="fas fa-play"></i>
+                            </button>
+                            <button class="text-gray-400 hover:text-white mr-3">
+                                <i class="fas fa-ellipsis-h"></i>
+                            </button>
+                        </td>
+                    </tr>
+                    <!-- Additional songs would be listed here -->
+                </tbody>
+            </table>
+        </div>
+    </div>
+
+    <!-- Player Bar (same as index.html) -->
+    <div class="player-bar fixed bottom-0 left-0 right-0 bg-gray-900 border-t border-gray-800 flex items-center px-4">
+        <!-- Player content same as index.html -->
+    </div>
+    <script src="app.js"></script>
+</body>
+</html>
