@@ -1,0 +1,206 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Your Playlists | Melodify</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap');
+        body {
+            font-family: 'Poppins', sans-serif;
+            background-color: #0f0f13;
+            color: white;
+        }
+        .player-bar {
+            height: 90px;
+        }
+        .album-art {
+            transition: transform 0.3s ease;
+        }
+        .album-art:hover {
+            transform: scale(1.05);
+        }
+        .playlist-card {
+            transition: all 0.3s ease;
+        }
+        .playlist-card:hover {
+            transform: translateY(-5px);
+        }
+    </style>
+</head>
+<body class="pb-20">
+    <!-- Navigation -->
+    <nav class="bg-black bg-opacity-80 backdrop-blur-md fixed w-full z-10">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex items-center justify-between h-16">
+                <div class="flex items-center">
+                    <div class="flex-shrink-0">
+                        <span class="text-2xl font-bold text-purple-500">Melodify</span>
+                    </div>
+                    <div class="hidden md:block">
+                        <div class="ml-10 flex items-baseline space-x-4">
+                            <a href="index.html" class="text-gray-300 hover:text-white px-3 py-2 rounded-md text-sm font-medium">Home</a>
+                            <a href="#" class="text-gray-300 hover:text-white px-3 py-2 rounded-md text-sm font-medium">Browse</a>
+                            <a href="library.html" class="text-gray-300 hover:text-white px-3 py-2 rounded-md text-sm font-medium">Library</a>
+                            <a href="playlists.html" class="text-white px-3 py-2 rounded-md text-sm font-medium">Playlists</a>
+                        </div>
+                    </div>
+                </div>
+                <div class="flex items-center">
+                    <div class="relative mx-4">
+                        <input type="text" placeholder="Search playlists..." class="bg-gray-800 text-white px-4 py-2 rounded-full w-64 focus:outline-none focus:ring-2 focus:ring-purple-500">
+                        <i class="fas fa-search absolute right-3 top-2.5 text-gray-400"></i>
+                    </div>
+                    <div class="ml-4 flex items-center md:ml-6">
+                        <button class="bg-purple-600 hover:bg-purple-700 text-white px-4 py-2 rounded-full text-sm font-medium">
+                            Upgrade
+                        </button>
+                        <div class="ml-3 relative">
+                            <div class="h-8 w-8 rounded-full bg-gray-600 flex items-center justify-center cursor-pointer">
+                                <i class="fas fa-user text-white"></i>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Main Content -->
+    <div class="pt-20 px-6 sm:px-10">
+        <div class="flex justify-between items-center mb-8">
+            <h1 class="text-3xl font-bold">Your Playlists</h1>
+            <button class="bg-purple-600 hover:bg-purple-700 px-4 py-2 rounded-full text-sm font-medium">
+                <i class="fas fa-plus mr-2"></i> New Playlist
+            </button>
+        </div>
+
+        <!-- Playlists Grid -->
+        <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-6">
+            <!-- Add New Playlist Card -->
+            <div class="playlist-card bg-gray-800 bg-opacity-50 rounded-xl p-6 flex flex-col items-center justify-center border-2 border-dashed border-gray-600 hover:border-purple-500 transition cursor-pointer h-64">
+                <div class="w-16 h-16 bg-purple-600 bg-opacity-20 rounded-full flex items-center justify-center mb-4">
+                    <i class="fas fa-plus text-purple-500 text-2xl"></i>
+                </div>
+                <h3 class="text-lg font-medium text-purple-400">Create New Playlist</h3>
+            </div>
+
+            <!-- Existing Playlist 1 -->
+            <div class="playlist-card bg-gray-800 bg-opacity-50 rounded-xl p-6 hover:bg-gray-700 transition cursor-pointer h-64 relative group overflow-hidden">
+                <img src="https://images.pexels.com/photos/1190298/pexels-photo-1190298.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940" alt="" class="absolute inset-0 w-full h-full object-cover opacity-30">
+                <div class="relative z-10 h-full flex flex-col">
+                    <div class="flex-1">
+                        <h3 class="text-xl font-bold mb-2">Workout Mix</h3>
+                        <p class="text-gray-300 text-sm">45 songs • 2h 36m</p>
+                    </div>
+                    <div class="flex justify-between items-center">
+                        <div class="flex -space-x-2">
+                            <img class="h-8 w-8 rounded-full border-2 border-gray-800" src="https://randomuser.me/api/portraits/women/44.jpg" alt="">
+                            <img class="h-8 w-8 rounded-full border-2 border-gray-800" src="https://randomuser.me/api/portraits/men/32.jpg" alt="">
+                        </div>
+                        <button class="opacity-0 group-hover:opacity-100 bg-black bg-opacity-60 hover:bg-opacity-80 w-10 h-10 rounded-full flex items-center justify-center transition">
+                            <i class="fas fa-play text-white"></i>
+                        </button>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Existing Playlist 2 -->
+            <div class="playlist-card bg-gray-800 bg-opacity-50 rounded-xl p-6 hover:bg-gray-700 transition cursor-pointer h-64 relative group overflow-hidden">
+                <img src="https://images.pexels.com/photos/167092/pexels-photo-167092.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940" alt="" class="absolute inset-0 w-full h-full object-cover opacity-30">
+                <div class="relative z-10 h-full flex flex-col">
+                    <div class="flex-1">
+                        <h3 class="text-xl font-bold mb-2">Chill Vibes</h3>
+                        <p class="text-gray-300 text-sm">32 songs • 1h 45m</p>
+                    </div>
+                    <div class="flex justify-between items-center">
+                        <div class="flex -space-x-2">
+                            <img class="h-8 w-8 rounded-full border-2 border-gray-800" src="https://randomuser.me/api/portraits/women/68.jpg" alt="">
+                        </div>
+                        <button class="opacity-0 group-hover:opacity-100 bg-black bg-opacity-60 hover:bg-opacity-80 w-10 h-10 rounded-full flex items-center justify-center transition">
+                            <i class="fas fa-play text-white"></i>
+                        </button>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Existing Playlist 3 -->
+            <div class="playlist-card bg-gray-800 bg-opacity-50 rounded-xl p-6 hover:bg-gray-700 transition cursor-pointer h-64 relative group overflow-hidden">
+                <img src="https://images.pexels.com/photos/144429/pexels-photo-144429.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940" alt="" class="absolute inset-0 w-full h-full object-cover opacity-30">
+                <div class="relative z-10 h-full flex flex-col">
+                    <div class="flex-1">
+                        <h3 class="text-xl font-bold mb-2">Focus Flow</h3>
+                        <p class="text-gray-300 text-sm">28 songs • 1h 30m</p>
+                    </div>
+                    <div class="flex justify-between items-center">
+                        <div class="flex -space-x-2">
+                            <img class="h-8 w-8 rounded-full border-2 border-gray-800" src="https://randomuser.me/api/portraits/men/75.jpg" alt="">
+                        </div>
+                        <button class="opacity-0 group-hover:opacity-100 bg-black bg-opacity-60 hover:bg-opacity-80 w-10 h-10 rounded-full flex items-center justify-center transition">
+                            <i class="fas fa-play text-white"></i>
+                        </button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Player Bar -->
+    <div class="player-bar fixed bottom-0 left-0 right-0 bg-gray-900 border-t border-gray-800 flex items-center px-4">
+        <div class="flex items-center w-1/4">
+            <img src="https://images.pexels.com/photos/1763075/pexels-photo-1763075.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=100&w=100" alt="Now Playing" class="h-14 w-14 rounded mr-3">
+            <div>
+                <h4 class="text-white text-sm font-medium">Blinding Lights</h4>
+                <p class="text-gray-400 text-xs">The Weeknd</p>
+            </div>
+            <button class="ml-4 text-gray-400 hover:text-white">
+                <i class="far fa-heart"></i>
+            </button>
+        </div>
+
+        <div class="w-2/4 flex flex-col items-center">
+            <div class="flex items-center mb-2">
+                <button class="mx-2 text-gray-400 hover:text-white">
+                    <i class="fas fa-random"></i>
+                </button>
+                <button class="mx-2 text-gray-400 hover:text-white">
+                    <i class="fas fa-step-backward"></i>
+                </button>
+                <button class="mx-3 bg-white text-black w-8 h-8 rounded-full flex items-center justify-center hover:bg-gray-200">
+                    <i class="fas fa-play"></i>
+                </button>
+                <button class="mx-2 text-gray-400 hover:text-white">
+                    <i class="fas fa-step-forward"></i>
+                </button>
+                <button class="mx-2 text-gray-400 hover:text-white">
+                    <i class="fas fa-redo"></i>
+                </button>
+            </div>
+            <div class="w-full flex items-center">
+                <span class="text-xs text-gray-400 mr-2">1:23</span>
+                <div class="flex-1 h-1 bg-gray-700 rounded-full">
+                    <div class="h-1 bg-purple-500 rounded-full" style="width: 30%"></div>
+                </div>
+                <span class="text-xs text-gray-400 ml-2">3:20</span>
+            </div>
+        </div>
+
+        <div class="w-1/4 flex justify-end items-center">
+            <button class="mx-2 text-gray-400 hover:text-white">
+                <i class="fas fa-list-ul"></i>
+            </button>
+            <button class="mx-2 text-gray-400 hover:text-white">
+                <i class="fas fa-laptop"></i>
+            </button>
+            <div class="flex items-center ml-4">
+                <i class="fas fa-volume-up text-gray-400 mr-2"></i>
+                <div class="w-20 h-1 bg-gray-700 rounded-full">
+                    <div class="h-1 bg-gray-400 rounded-full" style="width: 70%"></div>
+                </div>
+            </div>
+        </div>
+    </div>
+</body>
+</html>
